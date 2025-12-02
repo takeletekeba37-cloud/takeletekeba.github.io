@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Takele  | Graphic Designer & Java Developer</title>
+
+  <!-- Google Fonts -->
+ 
+
+  <style>
+    :root {
+      --bg: #0f0f1a;
+      --card: #1a1a2e;
+      --primary: #00d4ff;
+      --accent: #00ffaa;
+      --text: #e0e0e0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15,15,26,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: 0.4s;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .logo img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 20px rgba(0,212,255,0.6);
+    }
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--primary);
+      transition: 0.3s;
+    }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+
+    /* Hero Section */
+    #home {
+      height: 100vh;
+      background: linear-gradient(rgba(15,15,26,0.96), rgba(15,15,26,0.98)),
+                  url('https://i.ibb.co/7zXvP1Y/takele-photo.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-content {
+      background: rgba(10,10,18,0.8);
+      padding: 60px 80px;
+      border-radius: 30px;
+      border: 1px solid rgba(0,212,255,0.3);
+      backdrop-filter: blur(12px);
+    }
+    .hero-content h1 {
+      font-size: 5.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), #ffffff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-content p {
+      font-size: 1.6rem;
+      margin: 25px 0;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-block;
+      padding: 16px 45px;
+      background: var(--primary);
+      color: #000;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.4s;
+      box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+    }
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,255,170,0.5);
+    }
+
+    /* Sections */
+    section {
+      padding: 120px 10%;
+      text-align: center;
+    }
+    h2 {
+      font-size: 3.5rem;
+      margin-bottom: 70px;
+      background: linear-gradient(90deg, var(--primary), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* About */
+    #about p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      line-height: 2;
+      opacity: 0.9;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .skill-card {
+      background: var(--card);
+      padding: 40px 30px;
+      border-radius: 20px;
+      border: 1px solid #333;
+      transition: 0.4s;
+    }
+    .skill-card:hover {
+      transform: translateY(-15px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0,212,255,0.3);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+    .project {
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: 0.4s;
+    }
+    .project img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .project-info {
+      padding: 25px;
+    }
+    .project:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 60px rgba(0,212,255,0.3);
+    }
+
+    /* Contact */
+    #contact {
+      background: #0a0a12;
+      padding: 140px 10%;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 50px 0;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: var(--card);
+      padding: 18px 40px;
+      border-radius: 50px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.2rem;
+      border: 1px solid #333;
+      transition: 0.4s;
+    }
+    .social-links a:hover {
+      background: var(--primary);
+      color: #000;
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,212,255,0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px;
+      background: #000;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    /* Ripple Effect */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0,212,255,0.5);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+    @keyframes ripple {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 3.5rem; }
+      .hero-content { padding: 40px 20px; }
+      nav { padding: 15px 5%; }
+      .logo { font-size: 1.6rem; }
+      .nav-links a { margin: 0 10px; font-size: 0.9rem; }
+      section { padding: 80px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
+      <img src=" C:\Users\hp\OneDrive\Pictures\2025-01-18-18-01-57-602.jpg" alt="Coffee Logo">
+      <span>Takele Tekeba</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home">
+    <div class="hero-content">
+      <h1>HI, I'M TAKELE</h1>
+      <p>Graphic Designer • Java Developer • Creative Problem Solver</p>
+      <a href="#contact" class="btn">Let's Work Together</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      My name is <strong> Takele </strong>. I was born in 1995 E.C. (2003 G.C.) in Central Gondar Zone, Amhara Region, Ethiopia.<br><br>
+      I'm currently a <strong>Computer Science student at Wachemo University</strong> (joined in 2015 E.C. / 2023 G.C.).<br><br>
+      I work as a <strong>freelance graphic designer</strong> — creating logos, branding, posters, and advertisements using CorelDRAW and Photoshop.<br><br>
+      I'm deeply passionate about <strong>Java programming</strong> and <strong>algorithm problem-solving</strong>. My dream is to become a world-class software engineer who builds solutions that matter.<br><br>
+      Coffee + Code + Creativity = My perfect day!
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills & Services</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Graphic Design</h3>
+        <p>Logo • Branding • Poster</p>
+      </div>
+      <div class="skill-card">
+        <h3>Web Development</h3>
+        <p>HTML • CSS • JavaScript • Responsive Design</p>
+      </div>
+      <div class="skill-card">
+        <h3>Java Programming</h3>
+        <p>OOP • Data Structures • Algorithms • Problem Solving</p>
+      </div>
+      <div class="skill-card">
+        <h3>Tools</h3>
+        <p>CorelDRAW • Photoshop • VS Code • Git • Canva</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Recent Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <img src="C:\Users\hp\Downloads\Telegram Desktop\photo_2025-11-28_11-50-14.jpg" alt="Project">
+        <div class="project-info">
+          <h3>Brand Identity</h3>
+          <p>graphic design for advertisements</p>
+        </div>
+      </div>
+  
+      </div>
+    
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Get In Touch</h2>
+    <p>Email: <strong>takeletekeba37@gmail.com</strong><br>
+       Phone: <strong>+251 938 399 528</strong></p>
+
+    <div class="social-links">
+      <a href="https://t.me/takele233" target="_blank">
+        <i class="fab fa-telegram-plane"></i> Telegram
+      </a>
+      <a href="https://wa.me/251938399528" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://github.com/takeletekeba37-cloud/takeletekeba.github.io" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Takele  • all right reserved</p>
+  </footer>
+
+  <!-- JavaScript for Smooth Scroll, Active Nav & Ripple Effect -->
+  <script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Active Navigation Highlight
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === `#${current}`) {
+          a.classList.add('active');
+        }
+      });
+    });
+
+    // Ripple Effect on Click
+    document.querySelectorAll('.btn, .social-links a, .skill-card, .project').forEach(el => {
+      el.addEventListener('click', function(e) {
+        let ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        this.appendChild(ripple);
+
+        let x = e.clientX - e.target.getBoundingClientRect().left;
+        let y = e.clientY - e.target.getBoundingClientRect().top;
+
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+  </script>
+</body>
+</html>
