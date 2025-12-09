@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,8 +10,8 @@
 
   <style>
     :root {
-      --bg: #0f0f1a;
-      --card: #1a1a2e;
+      --bg: #5f5fc7;
+      --card: #8686d8;
       --primary: #00d4ff;
       --accent: #00ffaa;
       --text: #e0e0e0;
@@ -33,7 +33,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(15,15,26,0.95);
+      background: rgba(131, 131, 162, 0.95);
       backdrop-filter: blur(10px);
       z-index: 1000;
       transition: 0.4s;
@@ -76,7 +76,7 @@
     
     #home {
       height: 100vh;
-      background: linear-gradient(rgba(15,15,26,0.96), rgba(15,15,26,0.98)),
+      background: linear-gradient(hwb(308 27% 16% / 0.96), rgba(199, 235, 144, 0.98)),
                   url('https://i.ibb.co/7zXvP1Y/takele-photo.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
@@ -84,7 +84,7 @@
       text-align: center;
     }
     .hero-content {
-      background: rgba(10,10,18,0.8);
+      background: #8fe406cc;
       padding: 60px 80px;
       border-radius: 30px;
       border: 1px solid rgba(0,212,255,0.3);
@@ -93,7 +93,7 @@
     .hero-content h1 {
       font-size: 5.5rem;
       font-weight: 700;
-      background: linear-gradient(90deg, var(--primary), #ffffff, var(--accent));
+      background: linear-gradient(90deg, var(--primary), #7710bc, var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -101,12 +101,13 @@
       font-size: 1.6rem;
       margin: 25px 0;
       opacity: 0.9;
+      
     }
     .btn {
       display: inline-block;
       padding: 16px 45px;
       background: var(--primary);
-      color: #000;
+      color: hsl(0, 8%, 87%);
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
@@ -152,7 +153,7 @@
       background: var(--card);
       padding: 40px 30px;
       border-radius: 20px;
-      border: 1px solid #333;
+      border: 1px solid #544b4b;
       transition: 0.4s;
     }
     .skill-card:hover {
@@ -195,7 +196,7 @@
 
     
     #contact {
-      background: #0a0a12;
+      background: hwb(259 1% 65%);
       padding: 140px 10%;
     }
     .social-links {
@@ -215,7 +216,7 @@
       color: var(--text);
       text-decoration: none;
       font-size: 1.2rem;
-      border: 1px solid #333;
+      border: 1px solid #df8080;
       transition: 0.4s;
     }
     .social-links a:hover {
@@ -228,7 +229,7 @@
     footer {
       text-align: center;
       padding: 50px;
-      background: #000;
+      background: hsl(73, 71%, 48%);
       color: #666;
       font-size: 0.9rem;
     }
@@ -480,4 +481,5 @@ Staff Management,<br><br>
 </body>
 
 </html>
+
 
